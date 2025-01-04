@@ -1,0 +1,52 @@
+.about_section {
+    height: 50vh;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.about_section::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: wave 8s infinite linear;
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.section {
+    padding: 5rem 0;
+}
+
+.card {
+    transition: transform 0.3s;
+    margin-bottom: 2rem;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.team-member-img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.tech-icon {
+    font-size: 3rem;
+    margin: 1rem;
+    transition: transform 0.3s;
+}
+
+.tech-icon:hover {
+    transform: scale(1.2);
+}

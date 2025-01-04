@@ -1,0 +1,135 @@
+<%-include('partials/header.ejs') %>
+<body>
+    <!-- <div class="create_new container"> -->
+       <div class="margin_top container">
+            <div class="text-danger mb-3">
+                <p class="alert alert-info">NOTE : Only Indian citizens can open a bank account.
+                </p>
+            </div>
+            <div class="container">
+                <div class="form-container bg-white">
+                    <h2 class="text-center mb-4">Create new bank Acoount</h2>
+                    
+                    <form action="/created" method="POST"  class="needs-validation" enctype="multipart/form-data"  novalidate>
+                        <div class="row g-3">
+                            <!-- First Name & Last Name -->
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName" required>
+                                <div class="invalid-feedback">
+                                    Please enter your first name.
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName" required>
+                                <div class="invalid-feedback">
+                                    Please enter your last name.
+                                </div>
+                            </div>
+        
+                            <!-- Username & Password -->
+                            <div class="col-md-6">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" name="userName" required>
+                                <div class="invalid-feedback">
+                                    Please choose a username.
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                                <div class="invalid-feedback">
+                                    Please enter a password.
+                                </div>
+                            </div>
+        
+                            <!-- Phone  -->
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                                <div class="invalid-feedback">
+                                    Please enter your phone number.
+                                </div>
+                            </div>
+        
+                            <!-- Email -->
+                            <div class="col-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address.
+                                </div>
+                            </div>
+        
+                            <!-- Address -->
+                            <div class="col-12">
+                                <label for="address" class="form-label">Address</label>
+                                <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                                <div class="invalid-feedback">
+                                    Please enter your address.
+                                </div>
+                            </div>
+        
+                            <div class="col-12">
+                                <label for="profileImage" class="form-label">Profile Image</label>
+                                <input type="file" class="form-control" id="profileImage" name="profileImage" accept="image/*" required>
+                                <img id="imagePreview" class="preview-image" alt="Preview" src="/api/placeholder/200/200">
+                                <div class="invalid-feedback">
+                                  Please select a profile image.
+                                </div>
+                              </div>
+        
+                            <!-- Deposit  -->
+                            <div class="col-12">
+                                <label class="form-label">Deposit Options</label>
+                                <input type="number" class="form-control" id="Deposit" name="Deposit" required>
+                            </div>
+        
+                            <!-- Submit Button -->
+                            <div class="col-12 mt-4">
+                                <input class="btn btn-primary w-100" type="submit"></input>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+        // Form validation
+        (() => {
+            'use strict';
+            const forms = document.querySelectorAll('.needs-validation');
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+
+        // Image preview
+        document.getElementById('profileImage').addEventListener('change', function(e) {
+            const preview = document.getElementById('imagePreview');
+            const file = e.target.files[0];
+            if (file) {
+                preview.style.display = 'block';
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+<%-include('partials/footer.ejs') %>

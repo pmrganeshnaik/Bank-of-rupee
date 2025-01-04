@@ -1,0 +1,243 @@
+<%-include('partials/header.ejs') %>
+<body>
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-lg-6 hero-content" data-aos="fade-right">
+                  <h1 class="display-4 fw-bold mb-4">Banking Made Simple</h1>
+                  <p class="lead mb-4">Experience secure and seamless banking solutions for all your financial needs.</p>
+                  <div class="d-flex gap-3">
+                    <form action="/new_acc" method="get">
+                        <input  type="submit" class="btn btn-primary btn-lg" value="Open New Account" ></input>
+                    </form>
+                     
+                    <form action="/login" method="get">
+                        <input  type="submit" class="btn btn-outline-primary btn-lg" value="Login to Account"></input>
+                    </form>
+                  </div>
+              </div>
+              <div class="col-lg-6" data-aos="fade-left">
+                  <img src="/images/Brand Represent 3.jpeg" alt="Banking illustration" class="img-fluid hero-image">
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section id="features" class="py-5">
+      <div class="container">
+          <h2 class="text-center mb-5" data-aos="fade-up">Features & Services</h2>
+          <div class="row g-4">
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                  <div class="feature-card card h-100">
+                      <div class="card-body text-center">
+                          <img src="/api/placeholder/80/80" alt="Deposit" class="mb-4">
+                          <h5 class="card-title">Deposit</h5>
+                          <p class="card-text">Securely deposit funds into your account with instant confirmation.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                  <div class="feature-card card h-100">
+                      <div class="card-body text-center">
+                          <img src="/api/placeholder/80/80" alt="Transfer" class="mb-4">
+                          <h5 class="card-title">Transfer</h5>
+                          <p class="card-text">Send money instantly to any account worldwide.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                  <div class="feature-card card h-100">
+                      <div class="card-body text-center">
+                          <img src="/api/placeholder/80/80" alt="Withdraw" class="mb-4">
+                          <h5 class="card-title">Withdraw</h5>
+                          <p class="card-text">Quick and easy withdrawals at any time.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <!-- About Section -->
+  <section id="about" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="mb-4 text-center" >Amazing <span>Services & Features</span> for you</h2>
+                  <p class="lead text-center">We're committed to providing exceptional banking services with a focus on security, innovation, and customer satisfaction.</p>
+          <div class="row align-items-center mb-5">
+              <div class="col-lg-6" data-aos="fade-right">
+                  <img src="images/d3.jpg" alt="About us" class="img-fluid rounded">
+              </div>
+              <div class="col-lg-6" data-aos="fade-left">
+                  <div class="row g-4 mt-6">
+                      <div class="col-md-6">
+                          <div class="about-box">
+                              <h5>24/7 Support</h5>
+                              <p>Round-the-clock customer service</p>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="about-box">
+                              <h5>Secure Banking</h5>
+                              <p>Advanced security measures</p>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="about-box">
+                              <h5>Quick Transfers</h5>
+                              <p>Instant money transfers</p>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="about-box">
+                              <h5>Mobile Banking</h5>
+                              <p>Bank on the go</p>
+                          </div>
+                      </div>
+                  </div>
+                  <form action="/about" method="get">
+                    <input type="submit" class="btn btn-primary mt-4 m-4" value="About Us"></input>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Customer Reviews -->
+  <section class="py-5">
+      <div class="container">
+          <h2 class="text-center mb-5">Customer Reviews</h2>
+          <div class="review-scroll">
+              <div class="review-card">
+                  <div class="card">
+                      <div class="card-body">
+                          <h5>John Doe</h5>
+                          <p>"Excellent banking experience!"</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="review-card">
+                  <div class="card">
+                      <div class="card-body">
+                          <h5>Jane Smith</h5>
+                          <p>"Best customer service ever!"</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="review-card">
+                  <div class="card">
+                      <div class="card-body">
+                          <h5>Mike Johnson</h5>
+                          <p>"Secure and reliable banking."</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="review-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>John Doe</h5>
+                        <p>"Excellent banking experience!"</p>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Jane Smith</h5>
+                        <p>"Best customer service ever!"</p>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Mike Johnson</h5>
+                        <p>"Secure and reliable banking."</p>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+              <div class="card">
+                  <div class="card-body">
+                      <h5>John Doe</h5>
+                      <p>"Excellent banking experience!"</p>
+                  </div>
+              </div>
+          </div>
+          <div class="review-card">
+              <div class="card">
+                  <div class="card-body">
+                      <h5>Jane Smith</h5>
+                      <p>"Best customer service ever!"</p>
+                  </div>
+              </div>
+          </div>
+          <div class="review-card">
+              <div class="card">
+                  <div class="card-body">
+                      <h5>Mike Johnson</h5>
+                      <p>"Secure and reliable banking."</p>
+                  </div>
+              </div>
+          </div>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Contact Form -->
+  <section id="contact" class="py-5 bg-light">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-lg-6">
+                  <h2 class="text-center mb-5">Contact Us</h2>
+                  <form>
+                      <div class="mb-3">
+                          <input type="text" class="form-control" placeholder="Your Name">
+                      </div>
+                      <div class="mb-3">
+                          <input type="email" class="form-control" placeholder="Email Address">
+                      </div>
+                      <div class="mb-3">
+                          <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Partners -->
+  <section class="py-5">
+      <div class="container">
+          <div class="row align-items-center justify-content-center">
+              <div class="col-md-2 col-6 mb-4">
+                  <img src="/api/placeholder/120/60" alt="Visa" class="img-fluid partner-logo">
+              </div>
+              <div class="col-md-2 col-6 mb-4">
+                  <img src="/api/placeholder/120/60" alt="Mastercard" class="img-fluid partner-logo">
+              </div>
+              <div class="col-md-2 col-6 mb-4">
+                  <img src="/api/placeholder/120/60" alt="Rupay" class="img-fluid partner-logo">
+              </div>
+              <div class="col-md-2 col-6 mb-4">
+                  <img src="/api/placeholder/120/60" alt="American Express" class="img-fluid partner-logo">
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+      AOS.init({
+          duration: 1000,
+          once: true
+      });
+  </script>
+  
+  </body>
+  </html>
+<%-include('partials/footer.ejs') %>
+</html>

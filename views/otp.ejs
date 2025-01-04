@@ -1,0 +1,190 @@
+<%-include('partials/header.ejs') %>
+<style>
+    body {
+    background: linear-gradient(135deg, #0033cc 0%, #0066ff 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.otp-container {
+    max-width: 450px;
+    margin: 20px auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    background: white;
+    animation: floatIn 0.6s ease-out;
+}
+
+@keyframes floatIn {
+    from {
+        transform: translateY(-30px) scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.otp-input {
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    margin: 0 6px;
+    font-size: 24px;
+    font-weight: 600;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    background: #f8f9fa;
+    transition: all 0.3s;
+}
+
+.otp-input:focus {
+    border-color: #0052cc;
+    box-shadow: 0 0 0 3px rgba(0,82,204,0.25);
+    background: white;
+    outline: none;
+}
+
+.bank-logo {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 25px;
+    animation: pulse 2.5s infinite;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+.btn-verify {
+    background: linear-gradient(45deg, #0033cc, #0066ff);
+    border: none;
+    padding: 12px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,82,204,0.3);
+    transition: all 0.3s;
+}
+
+.btn-verify:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,82,204,0.4);
+    background: linear-gradient(45deg, #0029a3, #0052cc);
+}
+
+.success-message {
+    display: none;
+    color: #00875A;
+    font-weight: 600;
+    padding: 15px;
+    border-radius: 10px;
+    background: #E3FCEF;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from { 
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.heading {
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+.text-muted {
+    color: #666666 !important;
+}
+
+.resend-link {
+    color: #0052cc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.resend-link:hover {
+    color: #0033cc;
+    text-decoration: underline;
+}
+</style>
+<body>
+    <div class="container">
+        <div class="otp-container">
+            <div class="text-center">
+                <img src="/api/placeholder/90/90" alt="Bank Logo" class="bank-logo">
+                <h3 class="heading mb-4">Security Verification</h3>
+                <p class="text-muted mb-4">Please enter the 6-digit code sent to<br>+1 (***) ***-4589</p>
+            </div>
+
+            <div class="d-flex justify-content-center mb-4">
+                <input type="text" maxlength="1" class="otp-input" autocomplete="off">
+                <input type="text" maxlength="1" class="otp-input" autocomplete="off">
+                <input type="text" maxlength="1" class="otp-input" autocomplete="off">
+                <input type="text" maxlength="1" class="otp-input" autocomplete="off">
+                <input type="text" maxlength="1" class="otp-input" autocomplete="off">
+                <input type="text" maxlength="1" class="otp-input" autocomplete="off">
+            </div>
+
+            <div class="text-center">
+                <form action="/login" method="get">
+                    <button class="btn btn-verify btn-primary px-4 mb-4" onclick="verifyOTP()">Verify Code</button>
+                </form>
+                <p class="text-muted mb-0">Haven't received the code? <a href="#" class="resend-link">Resend Code</a></p>
+            </div>
+
+            <div class="success-message text-center mt-3">
+                <i class="fas fa-check-circle"></i> Verification successful! Redirecting...
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('.otp-input').forEach((input, index) => {
+            input.addEventListener('keyup', (e) => {
+                if (e.key >= 0 && e.key <= 9) {
+                    if (index < 5) {
+                        document.querySelectorAll('.otp-input')[index + 1].focus();
+                    }
+                } else if (e.key === 'Backspace') {
+                    if (index > 0) {
+                        document.querySelectorAll('.otp-input')[index - 1].focus();
+                    }
+                }
+            });
+
+            input.addEventListener('focus', () => {
+                input.style.transform = 'scale(1.05)';
+                setTimeout(() => input.style.transform = 'scale(1)', 200);
+            });
+        });
+
+        function verifyOTP() {
+            let otp = '';
+            document.querySelectorAll('.otp-input').forEach(input => {
+                otp += input.value;
+            });
+            
+            if (otp.length === 6) {
+                document.querySelector('.success-message').style.display = 'block';
+                document.querySelector('.btn-verify').disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>
+

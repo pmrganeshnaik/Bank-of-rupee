@@ -1,0 +1,159 @@
+<%-include('partials/header.ejs') %>
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        padding: 4rem 0;
+        color: white;
+        height: 20vh;
+    }
+
+    .faq-item {
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .faq-item:hover {
+        transform: translateX(10px);
+    }
+
+    .contact-form {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    .support-card {
+        transition: transform 0.3s;
+    }
+
+    .support-card:hover {
+        transform: translateY(-5px);
+    }
+</style>
+</head>
+<body>
+<section class="hero-section">
+    <div class="container text-center mt-6" data-aos="fade-up">
+        <h1 class="display-4">How Can We Help You?</h1>
+        <div class="row mt-4 justify-content-center">
+            <div class="col-md-6">
+                <input type="search" class="form-control form-control-lg" placeholder="Search for help...">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2 class="mb-4" data-aos="fade-up">Frequently Asked Questions</h2>
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item faq-item" data-aos="fade-up">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                How do I reset my password?
+                            </button>
+                        </h3>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Click on "Forgot Password" on the login page. Enter your registered email and follow the instructions sent to your email.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item faq-item" data-aos="fade-up">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                What are the daily transaction limits?
+                            </button>
+                        </h3>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                NEFT: ₹25,00,000 per day
+                                IMPS: ₹5,00,000 per day
+                                UPI: ₹1,00,000 per day
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item faq-item" data-aos="fade-up">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                How do I report unauthorized transactions?
+                            </button>
+                        </h3>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Immediately call our 24/7 helpline or use the "Report Issue" feature in your account dashboard. We'll block your card and investigate the transaction.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form mt-5" data-aos="fade-up">
+                    <h2 class="mb-4">Contact Us</h2>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Account Number</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Issue Type</label>
+                            <select class="form-select">
+                                <option>Account Access</option>
+                                <option>Transaction Issue</option>
+                                <option>Technical Support</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card support-card mb-4" data-aos="fade-left">
+                    <div class="card-body">
+                        <h4>24/7 Support</h4>
+                        <p>Toll Free: 1800-XXX-XXXX</p>
+                        <p>International: +91-XXXXXXXXXX</p>
+                    </div>
+                </div>
+
+                <div class="card support-card" data-aos="fade-left">
+                    <div class="card-body">
+                        <h4>Branch Support</h4>
+                        <p>Visit your nearest branch</p>
+                        <button class="btn btn-outline-primary">Find Branch</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+</script>
+</body>
+
+<%-include('partials/footer.ejs') %>

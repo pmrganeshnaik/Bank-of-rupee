@@ -1,0 +1,263 @@
+/* Header and footer  */
+.header {
+    padding: 1rem 2rem;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #1F509A;
+  }
+  
+  .nav-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .nav-links li {
+    position: relative;
+  }
+  
+  .nav-links a {
+    color: #1F509A;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #007bff;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 0.5rem 0;
+    min-width: 150px;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+  
+  .download-btn {
+    background: #1F509A;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    border: #1F509A solid 1px;
+  }
+  
+  .download-btn:hover {
+    background:transparent;
+    color: #1F509A;
+  }
+  
+  /* Updated Menu Button Styles */
+  .menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    color: #333;
+    z-index: 1002;
+    position: relative;
+  }
+  
+  .menu-btn i {
+    transition: transform 0.3s ease;
+  }
+  
+  /* Mobile Menu */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background: white;
+    padding: 2rem;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s;
+    z-index: 1001;
+  }
+  
+  .mobile-nav.active {
+    right: 0;
+  }
+  
+  .mobile-nav .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .mobile-nav .download-btn {
+    margin-top: 2rem;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 991px) {
+    .desktop-nav {
+      display: none;
+    }
+  
+    .menu-btn {
+      display: block;
+    }
+  
+    .mobile-nav .dropdown-menu {
+      position: static;
+      box-shadow: none;
+      display: none;
+      padding-left: 1rem;
+    }
+  
+    .mobile-nav .dropdown.active .dropdown-menu {
+      display: block;
+    }
+  }
+  
+  /* Footer */
+  
+  .footer {
+    background: #1F509A;
+    color: white;
+    padding: 4rem 0 2rem 0;
+    margin-top: 2rem;
+  }
+  
+  .footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+  
+  .footer-description {
+    color: #e0e0e0;
+    max-width: 300px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-heading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.75rem;
+  }
+  
+  .footer-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer-links a:hover {
+    color: white;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .social-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: opacity 0.3s;
+  }
+  
+  .social-links a:hover {
+    opacity: 0.8;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3rem;
+    padding-top: 2rem;
+    text-align: center;
+    color: #e0e0e0;
+  }
+  
+  .download-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .store-button {
+    background: white;
+    color: #0d47a1;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: opacity 0.3s;
+  }
+  
+  .store-button:hover {
+    opacity: 0.9;
+    color: #1F509A;
+  }
+  
+  .store-button i {
+    font-size: 1.5rem;
+  }
+  
+  @media (max-width: 991px) {
+    .footer {
+      padding: 3rem 0 1.5rem 0;
+      text-align: center;
+    }
+  
+    .footer-section {
+      margin-bottom: 2rem;
+    }
+  
+    .download-links {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }

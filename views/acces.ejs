@@ -1,0 +1,198 @@
+<%-include('partials/header.ejs') %>
+<body class="bg-light margin_top">
+    <div class="transaction-container ">
+        <!-- Navigation Pills -->
+        <ul class="nav nav-pills nav-justified mb-4" id="transactionTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#deposit">Deposit</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#withdraw">Withdraw</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#transfer">Transfer</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#profile">Profile</button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <!-- Deposit Section -->
+            <div class="tab-pane fade show active" id="deposit">
+                <div class="transaction-card">
+                    <h4 class="mb-4">Deposit Money</h4>
+
+                    <div class="balance-display">
+                        <h6 class="mb-2">Current Balance</h6>
+                        <h3 class="mb-0"><%= holder.balance %></h3>
+                    </div>
+
+                    <form action="/transactions/deposit" method="post">
+
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input type="text" name="username" class="form-control" placeholder="Enter username">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="Enter password">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Amount to Deposit</label>
+                            <input type="number" name="deposit"  class="form-control" placeholder="Enter amount">
+                        </div>
+                        
+                        <input type="submit" class="btn btn-primary btn-transaction w-100" value="Deposit Now"></input>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Withdraw Section -->
+            <div class="tab-pane fade" id="withdraw">
+                <div class="transaction-card">
+                    <h4 class="mb-4">Withdraw Money</h4>
+                    
+                    <div class="balance-display">
+                        <h6 class="mb-2">Current Balance</h6>
+                        <h3 class="mb-0"><%= holder.balance %></h3>
+                    </div>
+
+                    <form action="/transactions/withdraw" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input type="text" name="username" class="form-control" placeholder="Enter username">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="Enter password">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label">Amount to Withdraw</label>
+                            <input type="number" class="form-control" name="withdraw" placeholder="Enter amount">
+                        </div>
+                        
+                        <input type="submit" value="Withdraw Now" class="btn btn-warning btn-transaction w-100"></input>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Transfer Section -->
+            <div class="tab-pane fade" id="transfer">
+                <div class="transaction-card">
+                    <h4 class="mb-4">Transfer Money</h4>
+                    
+                    <div class="balance-display">
+                        <h6 class="mb-2">Current Balance</h6>
+                        <h3 class="mb-0"><%= holder.balance %></h3>
+                    </div>
+
+                    <form action="/transactions/transfer" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input type="text" name="username" class="form-control" placeholder="Enter username">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="Enter password">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Recipient Account Number</label>
+                            <input type="text" name="accountNumber" class="form-control" placeholder="Enter account number">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label">Amount to Transfer</label>
+                            <input type="number" name="transfer" class="form-control" placeholder="Enter amount">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-transaction w-100">Transfer Now</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Profile Section -->
+            <div class="tab-pane fade" id="profile">
+                <div class="transaction-card">
+                    <div class="container">
+                        <div class="profile-card">
+                            <!-- Profile Header with Image and Balance -->
+                            <div class="profile-header">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-4 profile-image-section">
+                                        <img src="<%= holder.profile_image %>" alt="Profile Picture" class="profile-image">
+                                        <h3 class="mt-3 mb-1"><%= holder.last_name %></h3>
+                                        <p class="mb-0 text-white-50">Account Holder</p>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="balance-card">
+                                            <div class="balance-label">Current Balance</div>
+                                            <h2 class="balance-amount"><%= holder.balance %></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Profile Details -->
+                            <div class="details-section">
+                                <h4 class="mb-4">Account Information</h4>
+                                
+                                <div class="details-grid">
+                                    <div class="detail-group">
+                                        <div class="detail-label">Account Number</div>
+                                        <div class="detail-value"><%= holder.account_no %></div>
+                                    </div>
+
+                                    <div class="detail-group">
+                                        <div class="detail-label">Username</div>
+                                        <div class="detail-value"><%= holder.user_name %></div>
+                                    </div>
+                    
+                                    <div class="detail-group">
+                                        <div class="detail-label">First Name</div>
+                                        <div class="detail-value"><%= holder.first_name %></div>
+                                    </div>
+
+                                    <div class="detail-group">
+                                        <div class="detail-label">Last name</div>
+                                        <div class="detail-value"> <%= holder.last_name %></div>
+                                    </div>
+                    
+                                    <div class="detail-group">
+                                        <div class="detail-label">Email</div>
+                                        <div class="detail-value"><%= holder.email %></div>
+                                    </div>
+
+                                    <div class="detail-group">
+                                        <div class="detail-label">Phone Number</div>
+                                        <div class="detail-value"><%= holder.phone_no %></div>
+                                    </div>
+                    
+                                    <div class="detail-group detail-full">
+                                        <div class="detail-label">Address</div>
+                                        <div class="detail-value"><%= holder.address %></div>
+                                    </div>
+                                </div>
+                    
+                                <div class="d-flex gap-3 mt-4">
+                                    <button class="btn btn-primary px-4 py-2">Go to Dashboard</button>
+                                    <button class="btn btn-outline-secondary px-4 py-2">Download Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+<%-include('partials/footer.ejs') %>
